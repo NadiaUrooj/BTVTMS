@@ -1,0 +1,184 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 04, 2023 at 02:33 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `btvtms`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `phone`, `email`, `password`) VALUES
+(1, 'Nadia', '03130506680', 'nadiaurooj@gmail.com', '$2y$10$phzNzH63qag2hB4gy5nj5earMaVlAWwK0YfWvXNprxRHxrnXnTr22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(11) NOT NULL,
+  `tourist_name` varchar(255) NOT NULL,
+  `tourist_cell_number` varchar(255) NOT NULL,
+  `tourist_email` varchar(255) NOT NULL,
+  `payment_via` varchar(255) NOT NULL,
+  `tourist_preferences` varchar(255) NOT NULL,
+  `package_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `tourist_name`, `tourist_cell_number`, `tourist_email`, `payment_via`, `tourist_preferences`, `package_id`) VALUES
+(1, 'Ali', '03111213145', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 1),
+(2, 'Ali', '2', 'ali@gmail.com', 'Easypaisa', 'sedsfjsdjf', 0),
+(3, 'Ali', '2', 'ali@gmail.com', 'Easypaisa', 'sedsfjsdjf', 0),
+(4, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0),
+(5, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0),
+(6, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0),
+(7, 'Ali', '03456789110', 'ali@gmail.com', 'Easypaisa', 'sedsfjsdjf', 0),
+(8, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0),
+(9, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0),
+(10, 'Ali', '2', 'ali@gmail.com', 'Easypaisa', 'sedsfjsdjf', 0),
+(11, 'Ali', '2', 'ali@gmail.com', 'Easypaisa', 'sedsfjsdjf', 0),
+(12, 'Ali', '2', 'ali@gmail.com', 'Jazz Cash', 'sedsfjsdjf', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `charges` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `name`, `country`, `charges`, `duration`) VALUES
+(1, 'Lahore', 'Pakistan', '30k', '6'),
+(2, 'Naran Valley', 'Pakistan', '20k', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tourist`
+--
+
+CREATE TABLE `tourist` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tourist`
+--
+
+INSERT INTO `tourist` (`id`, `name`, `email`, `contact`, `password`) VALUES
+(1, '', '', '', '$2y$10$cwDFzI1PbRczw/HU6GtgseofCxvhRB4bJZP0CNqQ9iZEPutHiFn5.'),
+(2, 'demo', 'demo@gmail.com', '03111212344', '$2y$10$phzNzH63qag2hB4gy5nj5earMaVlAWwK0YfWvXNprxRHxrnXnTr22'),
+(3, 'junaid', 'junaid@gmail.com', '03441171712', '$2y$10$Rctu95q8VfQ.ENYLeYzkAO0LryRa3MZbfwCj1ZhxwuD0RBVYql74C'),
+(4, 'saad', 'saad@gmail.com', '03456789110', '$2y$10$Nqlkm6z.DSiv.L7FSO.n0Ox.fGxn8FcFoz52y/9Erk0AdknT3jd.O');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tourist`
+--
+ALTER TABLE `tourist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tourist`
+--
+ALTER TABLE `tourist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
